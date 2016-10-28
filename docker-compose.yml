@@ -1,0 +1,16 @@
+version: '2'
+services:
+  elasticsearch:
+    build: .
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - ./data:/usr/share/elasticsearch/data
+      - .:/usr/share/elasticsearch/run
+
+networks:
+  default:
+    external:
+      name: ${BASE_DOCKER_COMPOSE_NETWORK}
+       
